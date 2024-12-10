@@ -1,10 +1,11 @@
-.hero {
+/* .hero {
   position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -1000;
 }
 @supports (height: 100dvh) {
   .hero {
@@ -31,6 +32,7 @@
   color: rgb(255, 255, 255);
   text-align: center;
   margin: 0.625rem;
+  top: -20%;
 }
 .hero-title {
   font-size: 3.5rem;
@@ -56,4 +58,146 @@
 .hero-button:hover {
   background-color: #cb376a;
   border: 1px solid #db7598;
+} */
+
+/* main {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100vw;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-height: 100dvh;
+} */
+
+:root {
+  --background: #ffffff;
+  --first-background: hsl(from darkseagreen h s l);
+  --alt-background: hsl(from var(--first-background) h s l / 0.2);
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16pt;
+}
+
+header {
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 36pt;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 24pt;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100dvw;
+  & p {
+    padding: 1em 0 0;
+  }
+}
+
+main img {
+  padding: 0;
+  min-width: 50dvw;
+}
+
+main > article > div {
+  min-width: 50dvw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+}
+
+article:nth-child(odd) {
+  background-color: var(--alt-background);
+}
+
+article:nth-child(even) {
+  background: var(--background);
+}
+
+article:nth-child(3) {
+  flex-direction: row-reverse;
+}
+
+article img {
+  max-width: 40dvw;
+}
+
+@media (max-width: 1100px) {
+  article {
+    flex-wrap: wrap;
+    padding: 0 0 2em;
+    & img {
+      max-width: 100dvw;
+    }
+
+    & p {
+      padding: 1em 1em 0;
+    }
+  }
+}
+
+@media (min-width: 1101px) {
+  img.padded {
+    padding: 3em 6em;
+  }
+
+  div.pad-mid {
+    padding: 0 6em 0 6em;
+  }
+
+  div.pad-right {
+    padding: 0 11em 0 1em;
+    text-align: start;
+  }
+
+  div.pad-left {
+    padding: 0 1em 0 11em;
+    text-align: end;
+  }
+
+  div.two-col {
+    display: flex;
+    flex: 1 0 auto;
+
+    & * {
+      min-width: 50dvw;
+    }
+  }
+}
+
+footer > article {
+  padding: 1em 0em;
+  & > div {
+    min-width: 100dvw;
+  }
+}
+
+footer > article:first-child {
+  background: var(--first-background);
+}
+
+.legal {
+  display: flex;
+  justify-content: space-around;
+  font-size: small;
+  text-align: center;
+}
+
+#contact,
+#services,
+#about {
+  display: none;
 }

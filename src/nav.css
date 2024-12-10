@@ -1,0 +1,73 @@
+nav {
+  background-color: #333;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: rgb(34, 193, 195);
+}
+
+nav a:active {
+  color: #aaa;
+}
+
+nav ul li {
+  position: relative;
+  margin: 0 20px 0 0;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  opacity: 0.5;
+}
+
+li > a:after {
+  content: " »";
+} /* Change this in order to change the Dropdown symbol */
+
+li > a:only-child:after {
+  content: "";
+}
+
+nav ul li ul {
+  visibility: hidden;
+  background-color: #333;
+  position: fixed;
+}
+
+nav ul li:hover ul {
+  visibility: visible;
+  flex-direction: column;
+}
+
+nav ul li ul li {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  min-height: 3em;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1em;
+  align-items: center;
+}
+
+main {
+  margin-top: 4rem;
+}
