@@ -10,7 +10,8 @@ header {
   --medium-grey: #636363;
   --light-grey: #eeeeee;
   --ash: #f4f4f4;
-  --primary-color: #2b72fb;
+  --primary-color: darkseagreen;
+  /* #2b72fb; */
   --white: white;
   --border: 1px solid var(--light-grey);
   --shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
@@ -43,12 +44,16 @@ button {
 .btn {
   display: block;
   background-color: var(--primary-color);
-  color: var(--white);
+  color: white;
   text-align: center;
   padding: 0.6rem 1.4rem;
   font-size: 1rem;
   font-weight: 500;
   border-radius: 5px;
+}
+
+.btn:hover {
+  filter: brightness(93%);
 }
 
 .icon {
@@ -108,6 +113,7 @@ button {
   padding: 0.3rem;
   min-width: 60px;
   margin: 0 0.6rem;
+  display: flex;
 }
 
 .menu-bar .nav-link:hover,

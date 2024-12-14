@@ -88,7 +88,7 @@ header {
 
 h1 {
   font-weight: 500;
-  font-size: 36pt;
+  font-size: 32pt;
 }
 
 h2 {
@@ -96,13 +96,21 @@ h2 {
   font-size: 24pt;
 }
 
+h3 {
+  font-weight: 500;
+  font-size: 20pt;
+}
+
 article {
   display: flex;
   align-items: center;
   text-align: center;
   width: 100dvw;
-  & p {
-    padding: 1em 0 0;
+  p {
+    padding: 1rem 0 0;
+  }
+  h3 ~ p {
+    padding: 0 0 1rem;
   }
 }
 
@@ -111,12 +119,27 @@ main img {
   min-width: 50dvw;
 }
 
+.centred {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.vertical {
+  flex-direction: column;
+  & img {
+    max-width: 100dvw;
+  }
+  padding-bottom: 0;
+}
+
 main > article > div {
   min-width: 50dvw;
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 1em;
+  padding: 1rem 0;
 }
 
 article:nth-child(odd) {
@@ -131,6 +154,14 @@ article:nth-child(3) {
   flex-direction: row-reverse;
 }
 
+article.left {
+  flex-direction: row;
+}
+
+article.right {
+  flex-direction: row-reverse;
+}
+
 article img {
   max-width: 40dvw;
 }
@@ -138,34 +169,45 @@ article img {
 @media (max-width: 1100px) {
   article {
     flex-wrap: wrap;
-    padding: 0 0 2em;
-    & img {
+    padding: 0 0 2rem;
+    img {
       max-width: 100dvw;
     }
-
-    & p {
-      padding: 1em 1em 0;
+    p {
+      padding: 1rem 1rem 0;
+      align-self: center;
+    }
+    h1,
+    h2,
+    h3 {
+      padding: 0 1rem;
+    }
+    h3 ~ p {
+      padding: 0 1rem 1rem;
     }
   }
 }
 
 @media (min-width: 1101px) {
   img.padded {
-    padding: 3em 6em;
+    padding: 3rem 6rem;
   }
 
   div.pad-mid {
-    padding: 0 6em 0 6em;
+    padding: 1rem 6rem;
+    align-items: center;
   }
 
   div.pad-right {
-    padding: 0 11em 0 1em;
+    padding: 1rem 11rem 1rem 1rem;
     text-align: start;
+    align-items: flex-start;
   }
 
   div.pad-left {
-    padding: 0 1em 0 11em;
+    padding: 1rem 1rem 1rem 11rem;
     text-align: end;
+    align-items: flex-end;
   }
 
   div.two-col {
@@ -179,7 +221,7 @@ article img {
 }
 
 footer > article {
-  padding: 1em 0em;
+  padding: 1rem 0rem;
   & > div {
     min-width: 100dvw;
   }
