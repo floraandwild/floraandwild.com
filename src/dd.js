@@ -5,12 +5,9 @@ const hamburgerIcon = hamburgerBtn.querySelector("i");
 const navMenu = document.querySelector(".menu");
 const links = document.querySelectorAll(".dropdown-link");
 const navLinks = document.querySelectorAll(".nav-link:not(.dropdown-btn)");
-const home = document.getElementById("home");
-const contact = document.getElementById("contact");
-const design = document.getElementById("design");
-const contractors = document.getElementById("contractors");
-const horticulture = document.getElementById("horticulture");
-const about = document.getElementById("about");
+
+const hrefButtons = document.querySelectorAll("button[data-href]");
+const targetButtons = document.querySelectorAll("button[data-target]");
 
 function setAriaExpandedFalse() {
   dropdownBtn.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
@@ -27,15 +24,6 @@ function toggleHamburger() {
   navMenu.classList.toggle("show");
   hamburgerIcon.classList.toggle("bx-menu");
   hamburgerIcon.classList.toggle("bx-collapse-alt");
-}
-
-function showSection(idToShow) {
-  const element = document.querySelector(`article[name=${idToShow}]`);
-  element?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-    inline: "nearest",
-  });
 }
 
 dropdownBtn.forEach((btn) => {
@@ -63,7 +51,6 @@ links.forEach((link) =>
     closeDropdownMenu();
     setAriaExpandedFalse();
     toggleHamburger();
-    showSection(link.dataset.sectionId);
   })
 );
 
@@ -72,7 +59,18 @@ navLinks.forEach((link) =>
     closeDropdownMenu();
     setAriaExpandedFalse();
     toggleHamburger();
-    showSection(link.dataset.sectionId);
+  })
+);
+
+hrefButtons.forEach((button) =>
+  button.addEventListener("click", () => {
+    location.href = button.dataset.href;
+  })
+);
+
+targetButtons.forEach((button) =>
+  button.addEventListener("click", () => {
+    window.open(button.dataset.target, "_blank");
   })
 );
 
@@ -91,4 +89,3 @@ document.addEventListener("keydown", (e) => {
 });
 
 hamburgerBtn.addEventListener("click", toggleHamburger);
-showSection("home");
