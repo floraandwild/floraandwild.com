@@ -53,6 +53,7 @@ main img {
   padding: 0;
   min-width: 50vw;
   min-width: 50cqw;
+  height: auto;
 }
 
 .centred {
